@@ -45,11 +45,4 @@ app.listen(port, () => {
     console.log("Server listening on port " + port);
 });
 
-// genThumbnail('https://files.klapklapapp.com/files/dancecorona.mp4', 
-// 'output/t.jpg' , '250x?').then(()=>{
-//     console.log("SUCCESSFUL")
-   
-// }).catch((error)=>{
-//     console.log(error)
-// })
 
