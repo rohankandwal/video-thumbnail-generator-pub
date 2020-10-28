@@ -24,13 +24,20 @@ app.post('/makeDir', (req, res)=>{
     res.status(200).send("SUCCESS");
 })
 
+function between(min, max) {  
+    return Math.floor(
+      Math.random() * (max - min) + min
+    ).toString();
+  }
+
 app.post('/generate/thumbnail', (req, res) => {
 
     // console.log(path.join(__dirname, "t.jpg"))
     // res.status(200).send("SUCCESSFUL");
  
-      genThumbnail(req.body.videoUrl, path.join(__dirname, "t.jpg"), '500x?').then(()=>{
-            imageToBase64("t.jpg").then((base64Image)=>{
+    const randVal = between(1,1000);
+      genThumbnail(req.body.videoUrl, path.join(__dirname, randVal+".jpg"), '500x?').then(()=>{
+            imageToBase64(randVal+".jpg").then((base64Image)=>{
                 res.status(200).send(base64Image)
             }).catch((error)=>{
                 res.status(400).send("Could not create base64");
