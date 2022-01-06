@@ -34,9 +34,10 @@ app.post('/generate/thumbnail', (req, res) => {
 
     // console.log(path.join(__dirname, "t.jpg"))
     // res.status(200).send("SUCCESSFUL");
- 
+    console.log("VideoURL = ${req.body.videoUrl}");
     const randVal = between(1,1000);
       genThumbnail(req.body.videoUrl, path.join(__dirname, randVal+".jpg"), '500x?').then(()=>{
+          console.log("Inside genThumbnail");
             imageToBase64(randVal+".jpg").then((base64Image)=>{
                 res.status(200).send(base64Image)
             }).catch((error)=>{
